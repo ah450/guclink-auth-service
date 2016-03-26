@@ -1,6 +1,6 @@
 class SubjectTaggerEmailInterceptor
   def self.delivering_email(message)
-    message.subject = '[EVALUATOR] ' + message.subject
+    message.subject = '[GUCLINK] ' + message.subject
   end
 
   def self.previewing_email(message)

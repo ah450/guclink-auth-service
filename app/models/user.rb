@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     name.split.map(&:capitalize).join ' '
   end
 
+  def as_json(_options = {})
+    super(except: [:password_digest])
+  end
+
   private
 
   def super_user_teacher
