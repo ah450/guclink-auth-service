@@ -7,8 +7,8 @@
 #  email           :string
 #  password_digest :string           not null
 #  student         :boolean          not null
-#  verified        :boolean          default("false"), not null
-#  super_user      :boolean          default("false"), not null
+#  verified        :boolean          default(FALSE), not null
+#  super_user      :boolean          default(FALSE), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
