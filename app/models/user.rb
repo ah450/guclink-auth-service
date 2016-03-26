@@ -1,12 +1,28 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  email           :string
+#  password_digest :string           not null
+#  student         :boolean          not null
+#  verified        :boolean          default("false"), not null
+#  super_user      :boolean          default("false"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   has_secure_password
   include JwtAuthenticatable
   include EmailVerifiable
   include PasswordResetable
+  include Cacheable
   STUDENT_EMAIL_REGEX = /\A[a-zA-Z\.\-]+@student.guc.edu.eg\z/
   TEACHER_EMAIL_REGEX = /\A[a-zA-Z\.\-]+@guc.edu.eg\z/
   GUC_EMAIL_REGEX = /\A[a-zA-Z\.\-]+@(student.)?guc.edu.eg\z/
-  validates :password, length: {minimum: 2}, allow_nil: true
+  validates :password, length: { minimum: 2 }, allow_nil: true
   validates :name, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :email, with: GUC_EMAIL_REGEX,
@@ -21,6 +37,10 @@ class User < ActiveRecord::Base
 
   def teacher?
     !student?
+  end
+
+  def full_name
+    name.split.map(&:capitalize).join ' '
   end
 
   private

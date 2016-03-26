@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  email           :string
+#  password_digest :string           not null
+#  student         :boolean          not null
+#  verified        :boolean          default("false"), not null
+#  super_user      :boolean          default("false"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 FactoryGirl.define do
   factory :user do
     name { Faker::Name.name }

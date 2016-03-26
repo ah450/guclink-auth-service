@@ -11,20 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326145154) do
+ActiveRecord::Schema.define(version: 20160326153945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "reset_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reset_tokens", ["user_id", "token"], name: "index_reset_tokens_on_user_id_and_token", using: :btree
+  add_index "reset_tokens", ["user_id"], name: "index_reset_tokens_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_digest"
-    t.boolean  "student"
-    t.boolean  "verified"
-    t.boolean  "super_user"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "password_digest",                 null: false
+    t.boolean  "student",                         null: false
+    t.boolean  "verified",        default: false, null: false
+    t.boolean  "super_user",      default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["student"], name: "index_users_on_student", using: :btree
+  add_index "users", ["super_user"], name: "index_users_on_super_user", using: :btree
+
+  create_table "verification_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "verification_tokens", ["user_id", "token"], name: "index_verification_tokens_on_user_id_and_token", using: :btree
+  add_index "verification_tokens", ["user_id"], name: "index_verification_tokens_on_user_id", using: :btree
+
+  add_foreign_key "reset_tokens", "users"
+  add_foreign_key "verification_tokens", "users"
 end
