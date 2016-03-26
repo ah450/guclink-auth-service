@@ -13,12 +13,12 @@ gem 'thin', require: false
 gem 'jwt'
 gem 'kaminari'
 gem 'rails-api'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'annotate'
+gem 'redis-rails'
+gem 'redis'
+gem 'hiredis'
+gem 'redis-namespace'
+gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
