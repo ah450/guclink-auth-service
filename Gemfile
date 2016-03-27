@@ -18,7 +18,6 @@ gem 'redis-rails'
 gem 'redis'
 gem 'hiredis'
 gem 'redis-namespace'
-gem 'capistrano-rails', group: :development
 gem 'sidekiq'
 
 
@@ -42,4 +41,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv-vars'
 end
