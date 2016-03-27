@@ -36,6 +36,8 @@ set :log_level, :debug
 set :local_user, 'authuser'
 set :rbenv_ruby, '2.2.4'
 set :rbenv_type, :user
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+set :thin_config_path, "#{current_path}/config/thin.yml"
 
 namespace :deploy do
 
@@ -47,5 +49,7 @@ namespace :deploy do
       # end
     end
   end
+
+  after 'deploy:publishing', 'thin:restart'
 
 end

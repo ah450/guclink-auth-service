@@ -46,4 +46,6 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv-vars'
+  gem 'capistrano-sidekiq'
+  gem 'capistrano-thin'
 end

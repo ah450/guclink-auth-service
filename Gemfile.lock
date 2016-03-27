@@ -62,6 +62,12 @@ GEM
     capistrano-rbenv-vars (0.1.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
+    capistrano-sidekiq (0.5.4)
+      capistrano
+      sidekiq (>= 3.4)
+    capistrano-thin (1.2.0)
+      capistrano (~> 3.0)
+      thin (~> 1.6)
     codeclimate-test-reporter (0.5.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
@@ -239,6 +245,8 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-vars
+  capistrano-sidekiq
+  capistrano-thin
   codeclimate-test-reporter
   email_spec
   factory_girl_rails

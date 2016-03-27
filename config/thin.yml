@@ -1,0 +1,16 @@
+---
+chdir: /home/authuser/guclink-auth-service
+environment: production
+address: 0.0.0.0
+port: 8000
+timeout: 30
+log: /home/authuser/guclink-auth-service/log/thin.log
+pid: /home/authuser/guclink-auth-service/pids/thin.pid
+socket: /home/authuser/guclink-auth-service/tmp/thin.sock
+max_conns: 1024
+max_persistent_conns: 100
+require: []
+wait: 30
+servers: 1
+daemonize: true
+threaded: true
