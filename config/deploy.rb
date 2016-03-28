@@ -38,7 +38,7 @@ set :rbenv_ruby, '2.2.4'
 set :rbenv_type, :user
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 set :sidekiq_log, 'log/sidekiq.log'
-
+set :sidekiq_pid, 'tmp/pids/sidekiq.pid'
 set :thin_config_path, "#{current_path}/config/thin.yml"
 
 namespace :deploy do
