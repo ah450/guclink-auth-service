@@ -15,8 +15,13 @@ else
               port: ENV['REDIS_PORT'])
   end
 end
-$redis = Redis::Namespace.new('guclink', redis: $redis_client,
-                                         deprecations: true)
+if Rails.env.test?
+  $redis = Redis::Namespace.new('guclink_auth', redis: $redis_client,
+                                                deprecations: true)
+else
+  $redis = Redis::Namespace.new('guclink', redis: $redis_client,
+                                           deprecations: true)
+end
 Sidekiq.configure_client do |config|
   config.redis = ConnectionPool.new(size: 5, &redis_conn)
 end

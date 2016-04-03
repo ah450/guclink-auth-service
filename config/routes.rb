@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     end
     resources :tokens, only: [:create]
     resources :configurations, only: [:index]
+    resources :status, only: [:index]
   end
 end
