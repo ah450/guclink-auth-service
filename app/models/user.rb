@@ -44,7 +44,9 @@ class User < ActiveRecord::Base
   end
 
   def as_json(_options = {})
-    super(except: [:password_digest])
+    super(except: [:password_digest],
+          methods: [:full_name]
+    )
   end
 
   private

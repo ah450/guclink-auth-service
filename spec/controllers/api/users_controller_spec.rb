@@ -52,7 +52,7 @@ RSpec.describe Api::UsersController, type: :controller do
       expect(json_response[:id]).to eql student.id
       expect(json_response).to include(
         :id, :email, :student, :name,
-        :verified
+        :verified, :full_name
       )
       expect(json_response).to_not include(
         :password_digest, :password
