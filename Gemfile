@@ -29,6 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'email_spec'
+  gem 'rack-cors'
 end
 
 group :test do
