@@ -19,6 +19,7 @@ gem 'redis'
 gem 'hiredis'
 gem 'redis-namespace'
 gem 'sidekiq'
+gem 'cacheable', git: 'git://github.com/ah450/cacheable.git'
 
 
 group :development, :test do
