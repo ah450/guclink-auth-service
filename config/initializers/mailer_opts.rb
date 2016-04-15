@@ -17,4 +17,7 @@ unless Rails.env.test?
     address: ENV['EMAIL_SERVER_ADDRESS'],
     port: ENV['EMAIL_SERVER_PORT']
   }
+  Mail.defaults do
+    delivery_method Rails.configuration.action_mailer.delivery_method, Rails.configuration.action_mailer.smtp_settings
+  end
 end
