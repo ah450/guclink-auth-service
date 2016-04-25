@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/ah450/cacheable.git
-  revision: 1be23279f34b61d78eee4c2ff65fb5fdab80aadc
+  revision: 4f24614d23318918b39ac8134282d04f144718ee
   specs:
-    cacheable (0.0.2)
+    cacheable (0.0.4)
       rails (~> 4.2.6)
       redis
       redis-namespace
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/ah450/guclink_controller_concerns.git
-  revision: b65ddc392c05c51d0282ca83268edbbbac814ac1
+  revision: 830d86e6e8bef69b0d4439fd15a0ce421e414449
   specs:
     guclink_controller_concerns (0.0.4)
       jwt
@@ -186,7 +186,7 @@ GEM
     rake (10.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    redis (3.2.2)
+    redis (3.3.0)
     redis-actionpack (4.0.1)
       actionpack (~> 4)
       redis-rack (~> 1.5.0)
@@ -245,7 +245,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.9.0)
+    sshkit (1.10.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     thin (1.6.4)
