@@ -77,4 +77,7 @@ RSpec.configure do |config|
     config.include(EmailSpec::Helpers)
     config.include(EmailSpec::Matchers)
   end
+  config.after(:each) do
+    $redis.flushall
+  end
 end
