@@ -1,5 +1,3 @@
-# config valid only for current version of Capistrano
-lock '3.4.1'
 
 set :application, 'guclink_auth'
 set :repo_url, 'git@github.com:ah450/guclink-auth-service.git'
